@@ -1,13 +1,13 @@
 {
-  "name": "@finsweet/developer-starter",
+  "name": "@studiorelief/intercellar",
   "version": "0.0.0",
   "description": "Developer starter template for Finsweet projects.",
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
   "keywords": [],
   "author": {
-    "name": "Finsweet",
-    "url": "https://finsweet.com/"
+    "name": "Intercellar",
+    "url": "https://intercellar.io"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@finsweet/ts-utils": "^0.39.2",
+    "gsap": "^3.12.4",
     "jquery": "^3.7.1"
   },
   "engines": {
