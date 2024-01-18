@@ -1,0 +1,20 @@
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper-slide {
+  transition: transform 3000ms ease;
+}
+  
+.swiper-slide.is-active {
+  transform: scale(1.2) !important; /* Moyen */
+}
+
+.swiper-slide.swiper-slide-prev {
+  transform: scale(1.1) !important; /* Moyen */
+}
+  
+.swiper-slide.swiper-slide-next {
+  transform: scale(1.1) !important; /* Moyen */
+}
+  

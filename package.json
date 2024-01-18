@@ -55,7 +55,8 @@
   "dependencies": {
     "@finsweet/ts-utils": "^0.39.2",
     "gsap": "^3.12.4",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "swiper": "^11.0.5"
   },
   "engines": {
     "pnpm": ">=8"
