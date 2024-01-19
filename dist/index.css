@@ -2,17 +2,91 @@
 .swiper {
   overflow: visible !important;
 }
-.swiper-slide {
+.swiper-slide.is-investors,
+.swiper-slide.is-partners,
+.swiper-slide.is-press {
   transition: transform 3000ms ease;
 }
-.swiper-slide.is-active {
+.swiper-slide.is-investors.is-active,
+.swiper-slide.is-partners.is-active,
+.swiper-slide.is-press.is-active {
   transform: scale(1.2) !important;
 }
-.swiper-slide.swiper-slide-prev {
+.swiper-slide.is-investors.swiper-slide-prev,
+.swiper-slide.is-partners.swiper-slide-prev,
+.swiper-slide.is-press.swiper-slide-prev {
   transform: scale(1.1) !important;
 }
-.swiper-slide.swiper-slide-next {
+.swiper-slide.is-investors.swiper-slide-next,
+.swiper-slide.is-partners.swiper-slide-next,
+.swiper-slide.is-press.swiper-slide-next {
   transform: scale(1.1) !important;
+}
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  right: auto !important;
+}
+.swiper-pagination-bullet {
+  width: auto !important;
+  min-width: 10rem;
+  height: auto !important;
+  padding-top: 0.875rem !important;
+  padding-right: 1.5rem !important;
+  padding-bottom: 1rem !important;
+  padding-left: 1.25rem !important;
+  opacity: 0.5;
+  transition-property:
+    border-radius,
+    text-shadow,
+    box-shadow,
+    opacity;
+  transition-duration:
+    250ms,
+    250ms,
+    250ms,
+    250ms;
+  transition-timing-function:
+    ease,
+    ease,
+    ease,
+    ease;
+  font-family: Tt norms pro;
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--color--transparent) !important;
+  text-align: left;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  box-shadow: inset 0 0 6px 0 rgba(255, 255, 255, 0.25);
+  opacity: 1;
+  backdrop-filter: blur(8px);
+  text-shadow: 0 0 0.75rem var(--white);
+  background-color: var(--color--transparent);
+}
+.swiper-pagination-bullet:hover {
+  opacity: 1;
+}
+.swiper-pagination-bullet:medium {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+.swiper-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, transparent, black);
+  opacity: 0;
+  z-index: 1;
 }
 
 /* node_modules/.pnpm/swiper@11.0.5/node_modules/swiper/swiper-bundle.css */
@@ -676,4 +750,7 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
   overflow: hidden;
 }
+/*! Page Team */
+/*! Page Concept */
+/*! Page Concept - Radial */
 /*# sourceMappingURL=index.css.map */

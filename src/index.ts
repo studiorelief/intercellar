@@ -1,9 +1,9 @@
 import './index.css';
 
-import { conceptAnimCards, videoControl } from '$utils/gsap';
+/* import { conceptAnimCards, videoControl } from '$utils/gsap'; */
 import { loadScript } from '$utils/loadscript';
 import { loadModelViewerScript } from '$utils/modalviewer';
-import { swiperTeam } from '$utils/swiper';
+import { swiperConcept, swiperTeam } from '$utils/swiper';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
@@ -23,7 +23,8 @@ window.Webflow.push(() => {
 
   // Load gsap anim on concept
   if (window.location.href.includes('/concept')) {
-    conceptAnimCards();
-    videoControl();
+    /* conceptAnimCards();
+    videoControl(); */
+    swiperConcept();
   }
 });

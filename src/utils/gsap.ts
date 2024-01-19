@@ -59,89 +59,34 @@ export function conceptAnimCards() {
   });
 }
 
-/* export function radialTransition() {
-  const slides: HTMLElement[] = gsap.utils.toArray('.concept-v2_slide');
+export function videoControl() {
+  const slidesVideo = document.querySelectorAll('.concept-v2_slide');
 
-  slides.forEach((slide) => {
-    const layers = gsap.utils.toArray<HTMLElement>(slide.querySelectorAll('.concept-v2_layer'));
+  const observerVideo = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const background = entry.target.querySelector('.concept-v2_background');
 
-    layers.forEach((layer) => {
-      // Créer un ScrollTrigger pour chaque layer
-      ScrollTrigger.create({
-        markers: true,
-        trigger: slide,
-        start: '0% 50%',
-        end: '100% 50%',
-        scrub: true,
-        onUpdate: (self) => {
-          const { progress } = self;
-          let startSize, endSize;
-
-          if (progress <= 0.5) {
-            // De 0% à 50%, ouverture du radial
-            startSize = '0%';
-            endSize = `${progress * 2 * 100}%`;
-          } else {
-            // De 50% à 100%, fermeture du radial
-            startSize = '0%';
-            endSize = `${(1 - progress) * 2 * 100}%`;
-          }
-
-          applyRadialEffect(layer, startSize, endSize);
-        },
+        if (entry.isIntersecting) {
+          gsap.to(background, {
+            zIndex: 1,
+            opacity: 1,
+            duration: 0.5,
+          });
+        } else {
+          gsap.to(background, {
+            zIndex: 0,
+            opacity: 0,
+            duration: 0.25,
+          });
+        }
       });
-    });
-  });
-}
-
-function applyRadialEffect(layer: Element, startSize: string, endSize: string) {
-  gsap.to(layer, {
-    background: `radial-gradient(circle, transparent ${startSize}, black ${endSize})`,
-    duration: 0.1,
-    ease: 'none',
-  });
-} */
-
-export function radialTransition() {
-  const layer = document.querySelector('.concept-v2_layer') as HTMLElement;
-  const backgrounds = [
-    'is-wine-spiritz',
-    'is-nft-mint',
-    'is-secure-storage',
-    'is-exclusive-drop',
-    'is-marketplace',
-    'is-asset-redemption',
-  ];
-
-  function getRadialGradient(scrollY: number) {
-    const height = window.innerHeight;
-    const positionInVh = ((scrollY % height) / height) * 100;
-
-    let colorStart, colorEnd;
-
-    if (positionInVh <= 40) {
-      colorStart = 'black';
-      colorEnd = `rgba(0, 0, 0, ${1 - positionInVh / 40})`;
-    } else {
-      colorStart = `rgba(0, 0, 0, ${(positionInVh - 40) / 60})`;
-      colorEnd = 'black';
+    },
+    {
+      threshold: 0.5,
     }
-
-    return `radial-gradient(circle at center, ${colorStart} 0vh, ${colorEnd} 100vh)`;
-  }
-
-  window.addEventListener('scroll', () => {
-    const { scrollY } = window;
-    const currentSection = Math.floor(scrollY / window.innerHeight);
-
-    const radialGradient = getRadialGradient(scrollY);
-    gsap.to(layer, { background: radialGradient });
-
-    if (currentSection < backgrounds.length) {
-      backgrounds.forEach((bg) => {
-        document.body.classList.remove(`concept-v2_background.${bg}`);
-      });
-      document.body.classList.add(`concept-v2_background.${backgrounds[currentSection]}`);
-    }
+  );
+  slidesVideo.forEach((slide) => {
+    observerVideo.observe(slide);
   });
 }
