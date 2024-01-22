@@ -22,9 +22,7 @@
   
 /*! Page Concept */ 
 
-.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
-right: auto !important;
-}
+
 
 .swiper-pagination-bullet {
   width: auto !important;
@@ -82,4 +80,42 @@ right: auto !important;
     opacity: 0; /* Commencer invisible */
     z-index: 1; /* Assurez-vous qu'il est au-dessus du contenu de la diapositive */
   }
-  
+
+/*! PC */ 
+@media (min-width: 1025px) {
+.swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
+right: auto !important;
+}
+}
+
+/*! Mobile */ 
+@media (max-width: 1024px) {
+  .swiper-slide {
+
+    height: 100dvh !important;
+  }
+  .swiper-vertical > .swiper-pagination-bullets, 
+  .swiper-pagination-vertical.swiper-pagination-bullets {
+      top: 10% !important;
+      left: 0% !important;
+      overflow: scroll !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      
+  }
+
+  .swiper-pagination-bullet {
+    display: inline-block !important;
+   white-space: nowrap !important;
+  }
+
+  .swiper-pagination-bullet {
+    min-width: auto;
+    padding-top: 0.875rem !important;
+    padding-right: 1.5rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 1.25rem !important;
+  }
+    
+
+}

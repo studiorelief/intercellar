@@ -103,6 +103,9 @@ export function swiperConcept() {
           'Marketplace',
           'Asset Redemption',
         ];
+        if (!titles[index] || titles[index].length === 0) {
+          return ''; // Return an empty string to hide the bullet
+        }
         return '<span class="' + className + '">' + titles[index] + '</span>';
       },
     },
