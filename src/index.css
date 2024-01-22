@@ -90,10 +90,7 @@ right: auto !important;
 
 /*! Mobile */ 
 @media (max-width: 1024px) {
-  .swiper-slide {
 
-    height: 100dvh !important;
-  }
   .swiper-vertical > .swiper-pagination-bullets, 
   .swiper-pagination-vertical.swiper-pagination-bullets {
       top: 10% !important;
@@ -107,6 +104,10 @@ right: auto !important;
   .swiper-pagination-bullet {
     display: inline-block !important;
    white-space: nowrap !important;
+  }
+
+  .concept-v2_cards {
+    backdrop-filter: blur(100px) !important;
   }
 
   .swiper-pagination-bullet {
