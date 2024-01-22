@@ -98,7 +98,10 @@ right: auto !important;
       overflow: scroll !important;
       flex-direction: row !important;
       justify-content: flex-start !important;
-      
+      -ms-overflow-style: none; 
+      scrollbar-width: none;  
+      &::-webkit-scrollbar {
+      display: none;
   }
 
   .swiper-pagination-bullet {
