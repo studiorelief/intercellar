@@ -99,7 +99,6 @@ right: auto !important;
       justify-content: flex-start !important;
       -ms-overflow-style: none; 
       scrollbar-width: none;  
-      display: none; 
 }
 
   .swiper-pagination-bullet {
