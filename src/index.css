@@ -121,16 +121,6 @@ right: auto !important;
 
 
 /*! Radial transition */ 
-
-/* @keyframes radialAnimation {
-  from {
-    background-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%);
-  }
-  to {
-    background-image: radial-gradient(circle at 50% 50%, transparent 0%, black 100%);
-  }
-} */
-
 .concept_radial {
   position: absolute;
   left: 0%;
