@@ -1,7 +1,9 @@
 import './index.css';
 
+/* import { conceptAnimCards, videoControl } from '$utils/gsap'; */
 import { loadScript } from '$utils/loadscript';
 import { loadModelViewerScript } from '$utils/modalviewer';
+import { swiperConceptRadial, swiperTeam } from '$utils/swiper';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
@@ -15,4 +17,12 @@ window.Webflow.push(() => {
 
   // Load 3D
   loadModelViewerScript();
+
+  // Load swiper
+  swiperTeam();
+
+  // Load gsap anim on concept
+  if (window.location.href.includes('/concept')) {
+    swiperConceptRadial();
+  }
 });
