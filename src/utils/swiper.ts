@@ -83,7 +83,16 @@ export function conceptAnimCardsV3(swiper: Swiper) {
   });
 }
 
-export function swiperConcept() {
+function updateRadialGradient(percent: number): void {
+  const elements = document.querySelectorAll('.swiper-slide-active .concept_radial');
+  elements.forEach((element) => {
+    (
+      element as HTMLElement
+    ).style.backgroundImage = `radial-gradient(circle farthest-corner at 50% 50%, transparent 0%, black ${percent}%)`;
+  });
+}
+
+export function swiperConceptRadial(): void {
   new Swiper('.swiper.is-concept', {
     modules: [Mousewheel, EffectFade, Pagination],
     direction: 'vertical',
@@ -94,7 +103,7 @@ export function swiperConcept() {
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
-      renderBullet: function (index, className) {
+      renderBullet: (index: number, className: string): string => {
         const titles = [
           'Wine & Spiritz',
           'NFT & Mint',
@@ -106,7 +115,7 @@ export function swiperConcept() {
         if (!titles[index] || titles[index].length === 0) {
           return ''; // Return an empty string to hide the bullet
         }
-        return '<span class="' + className + '">' + titles[index] + '</span>';
+        return `<span class="${className}">${titles[index]}</span>`;
       },
     },
     mousewheel: {
@@ -117,9 +126,29 @@ export function swiperConcept() {
     fadeEffect: {
       crossFade: true,
     },
+
     on: {
+      init: function () {
+        updateRadialGradient(100);
+      },
       slideChange: function (this: Swiper) {
-        conceptAnimCardsV3(this); // Appel de la fonction à chaque changement de diapositive
+        conceptAnimCardsV3(this);
+
+        let startTime: number | null = null;
+        const duration = 2000; // Durée de l'animation en ms
+
+        const animate = (time: number) => {
+          if (!startTime) startTime = time;
+          const timeElapsed = time - startTime;
+          const radialPercent = Math.min((timeElapsed / duration) * 100, 100);
+          updateRadialGradient(radialPercent);
+
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animate);
+          }
+        };
+
+        requestAnimationFrame(animate);
       },
     },
   });

@@ -91,8 +91,7 @@ right: auto !important;
 /*! Mobile */ 
 @media (max-width: 1024px) {
 
-  .swiper-vertical > .swiper-pagination-bullets, 
-  .swiper-pagination-vertical.swiper-pagination-bullets {
+  .swiper-vertical > .swiper-pagination-bullets, .swiper-pagination-vertical.swiper-pagination-bullets {
       top: 10% !important;
       left: 0% !important;
       overflow: scroll !important;
@@ -100,9 +99,8 @@ right: auto !important;
       justify-content: flex-start !important;
       -ms-overflow-style: none; 
       scrollbar-width: none;  
-      &::-webkit-scrollbar {
-      display: none;
-  }
+      display: none; 
+}
 
   .swiper-pagination-bullet {
     display: inline-block !important;
@@ -120,6 +118,25 @@ right: auto !important;
     padding-bottom: 1rem !important;
     padding-left: 1.25rem !important;
   }
-    
+}
 
+
+/*! Radial transition */ 
+
+/* @keyframes radialAnimation {
+  from {
+    background-image: radial-gradient(circle at 50% 50%, transparent 0%, black 0%);
+  }
+  to {
+    background-image: radial-gradient(circle at 50% 50%, transparent 0%, black 100%);
+  }
+} */
+
+.concept_radial {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  transition: background-image 2s ease-out;
 }
