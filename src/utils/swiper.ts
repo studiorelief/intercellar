@@ -9,15 +9,15 @@ export function swiperTeam() {
   new Swiper('.swiper.is-investors', {
     modules: [Autoplay],
     direction: 'horizontal',
-    grabCursor: true,
+    grabCursor: false,
     loop: true,
     slidesPerView: 'auto',
     spaceBetween: 64, // variable
     centeredSlides: true,
     autoplay: {
       delay: 0,
-      pauseOnMouseEnter: false,
-      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: true,
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
@@ -124,18 +124,17 @@ export function swiperConceptRadial(): void {
     },
     effect: 'fade',
     fadeEffect: {
-      crossFade: true,
+      crossFade: false,
     },
 
     on: {
-      init: function () {
+      init: function (this: Swiper): void {
         updateRadialGradient(100);
       },
       slideChange: function (this: Swiper) {
         conceptAnimCardsV3(this);
-
         let startTime: number | null = null;
-        const duration = 2000; // Durée de l'animation en ms
+        const duration = 2000;
 
         const animate = (time: number) => {
           if (!startTime) startTime = time;
