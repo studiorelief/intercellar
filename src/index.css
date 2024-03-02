@@ -130,3 +130,8 @@ right: auto !important;
   transition: background-image 2s ease-out;
 }
 
+
+/*! Radial home */ 
+.apply-v2_layer-radial {
+  background: radial-gradient(closest-side, transparent, black 100%);
+}

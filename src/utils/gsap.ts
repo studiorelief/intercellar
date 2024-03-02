@@ -3,90 +3,125 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function conceptAnimCards() {
-  const slides = gsap.utils.toArray<HTMLElement>('.concept-v2_slide');
+export function homeAnimCards() {
+  // Assurez-vous que les triggers sont correctement fixés après le chargement complet de la page
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
 
-  slides.forEach((slide) => {
-    const cards = slide.querySelectorAll<HTMLElement>('.concept-v2_cards');
-    gsap.set(cards, { rotationY: -90, filter: 'blur(0rem)' }); // État initial
+  // Assurez-vous que les triggers sont recalibrés après un redimensionnement de la fenêtre
+  window.addEventListener('resize', () => {
+    ScrollTrigger.refresh();
+  });
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          cards.forEach((card) => {
-            const tl = gsap.timeline(); // Création d'une timeline pour chaque carte
+  // Utilisation d'une assertion de type pour convertir le résultat de toArray en 'gsap.DOMTarget[]'
 
-            if (!entry.isIntersecting) {
-              // Lorsque le slide sort de la vue
-              tl.to(card, {
-                rotationY: -180,
-                duration: 1,
-                ease: 'easeout',
-                transformOrigin: 'center',
-              }).to(
-                card,
-                {
-                  filter: 'blur(1rem)',
-                  duration: 0.5,
-                  ease: 'easeOut', // Durée différente pour le flou
-                },
-                0
-              ); // Démarre en même temps que la rotation
-            } else {
-              // Lorsque le slide entre dans la vue
-              tl.to(card, {
-                rotationY: 0,
-                duration: 1,
-                ease: 'easeOut',
-                transformOrigin: 'center',
-              }).to(
-                card,
-                {
-                  filter: 'blur(0rem)',
-                  duration: 0.5,
-                  ease: 'easeOut', // Durée différente pour le flou
-                },
-                0
-              ); // Démarre en même temps que la rotation
-            }
-          });
-        });
-      },
-      { threshold: 0.25 }
-    );
+  /**
+   * * Cards anim
+   */
+  gsap.set('.real-v2_cards-c.is-1', { rotateX: -90 });
+  gsap.to('.real-v2_cards-c.is-1', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.real-v2_scroll-step-1',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+    y: '-100vh',
+    ease: 'none',
+    transformOrigin: 'center',
+    force3D: true,
+  });
 
-    observer.observe(slide);
+  /**
+   * * Videos fade
+   */
+
+  gsap.set('.real-v2_anim-video.is-1', { opacity: 1 });
+  gsap.to('.real-v2_anim-video.is-1', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.real-v2_scroll-step-1',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+    opacity: 0,
+    ease: 'none',
+  });
+  gsap.set('.real-v2_anim-video.is-2', { opacity: 1 });
+  gsap.to('.real-v2_anim-video.is-2', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.real-v2_scroll-step-2',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+    opacity: 0,
+    ease: 'none',
+  });
+  gsap.set('.real-v2_anim-video.is-3', { opacity: 1 });
+  gsap.to('.real-v2_anim-video.is-3', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.real-v2_scroll-step-3',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+    opacity: 0,
+    ease: 'none',
+  });
+  gsap.set('.real-v2_anim-video.is-4', { opacity: 1 });
+  gsap.to('.real-v2_anim-video.is-4', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.real-v2_scroll-step-4',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+    opacity: 0,
+    ease: 'none',
   });
 }
 
-export function videoControl() {
-  const slidesVideo = document.querySelectorAll('.concept-v2_slide');
-
-  const observerVideo = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const background = entry.target.querySelector('.concept-v2_background');
-
-        if (entry.isIntersecting) {
-          gsap.to(background, {
-            zIndex: 1,
-            opacity: 1,
-            duration: 0.5,
-          });
-        } else {
-          gsap.to(background, {
-            zIndex: 0,
-            opacity: 0,
-            duration: 0.25,
-          });
-        }
-      });
+export function homeAnimEvent() {
+  gsap.set('.event-v2_bg-video-wrapper', { height: '2px' });
+  gsap.to('.event-v2_bg-video-wrapper', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.section_event-v2',
+      start: '20% 50%',
+      end: '55% 50%',
+      scrub: true,
     },
-    {
-      threshold: 0.5,
-    }
-  );
-  slidesVideo.forEach((slide) => {
-    observerVideo.observe(slide);
+    height: '50vh',
+  });
+
+  gsap.set('.event-v2_subheading', { opacity: 0 });
+  gsap.to('.event-v2_subheading', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.section_event-v2',
+      start: '35% 50%',
+      end: '75% 50%',
+      scrub: true,
+    },
+    opacity: 1,
+  });
+
+  gsap.set('.event-v2_heading-wrapper', { x: 0 });
+  gsap.to('.event-v2_heading-wrapper', {
+    scrollTrigger: {
+      markers: true,
+      trigger: '.section_event-v2',
+      start: '25% 50%',
+      end: '65% 50%',
+      scrub: true,
+    },
+    x: '-20vw',
   });
 }

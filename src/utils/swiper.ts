@@ -152,3 +152,23 @@ export function swiperConceptRadial(): void {
     },
   });
 }
+
+export function swiperDrops() {
+  new Swiper('.swiper.is-drops-v2', {
+    modules: [Autoplay],
+    direction: 'horizontal',
+    grabCursor: false,
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 64, // variable
+    centeredSlides: true,
+    autoplay: {
+      delay: 0,
+      pauseOnMouseEnter: true,
+      disableOnInteraction: true,
+      reverseDirection: false,
+    },
+    slideActiveClass: 'is-active',
+    speed: 3000,
+  });
+}

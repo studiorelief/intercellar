@@ -1,9 +1,10 @@
 import './index.css';
 
+import { homeAnimCards, homeAnimEvent } from '$utils/gsap';
 /* import { conceptAnimCards, videoControl } from '$utils/gsap'; */
-import { loadScript } from '$utils/loadscript';
+import { loadScript, videoLoop } from '$utils/loadscript';
 import { loadModelViewerScript } from '$utils/modalviewer';
-import { swiperConceptRadial, swiperTeam } from '$utils/swiper';
+import { swiperConceptRadial, swiperDrops, swiperTeam } from '$utils/swiper';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
@@ -17,11 +18,18 @@ window.Webflow.push(() => {
 
   // Load 3D
   loadModelViewerScript();
+  videoLoop();
 
-  // Load swiper
-  swiperTeam();
+  // Home
+  if (window.location.href.includes('/accueil')) {
+    homeAnimCards();
+    swiperDrops();
+    homeAnimEvent();
+  }
 
-  // Load gsap anim on concept
+  if (window.location.href.includes('/team')) {
+    swiperTeam();
+  }
   if (window.location.href.includes('/concept')) {
     swiperConceptRadial();
   }

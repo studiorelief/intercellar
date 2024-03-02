@@ -12,3 +12,17 @@ function loadScript(src: string) {
 }
 
 export { loadScript };
+
+export function videoLoop() {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      const videoElement = document.getElementById('videoLoop') as HTMLMediaElement;
+      // Vérifier si la vidéo est en pause ou a fini de jouer, puis la rejouer
+      if (videoElement && (videoElement.paused || videoElement.ended)) {
+        videoElement.play().catch((error) => {
+          console.error('Erreur lors de la tentative de lecture de la vidéo: ', error);
+        });
+      }
+    }
+  });
+}
