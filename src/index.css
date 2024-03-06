@@ -2,6 +2,17 @@
   overflow: visible !important;
 }
 
+/*! Home v2 */ 
+
+.swiper-wrapper {
+  overflow: visible !important;
+}
+
+/* swiper linear loop */
+.swiper.is-drops-v2 .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
 /*! Page Team */ 
 
 .swiper-slide.is-investors, .swiper-slide.is-partners, .swiper-slide.is-press  {

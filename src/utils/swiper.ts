@@ -169,6 +169,6 @@ export function swiperDrops() {
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
-    speed: 3000,
+    speed: 6000,
   });
 }
