@@ -21,7 +21,7 @@ window.Webflow.push(() => {
   videoLoop();
 
   // Home
-  if (window.location.href.includes('/accueil')) {
+  if (window.location.pathname === '/') {
     homeAnimCards();
     swiperDrops();
     homeAnimEvent();
