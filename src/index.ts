@@ -1,6 +1,6 @@
 import './index.css';
 
-import { homeAnimCards, homeAnimEvent } from '$utils/gsap';
+import { homeAnimCards, homeAnimEvent, homeAnimHeadingBig } from '$utils/gsap';
 /* import { conceptAnimCards, videoControl } from '$utils/gsap'; */
 import { loadScript, videoLoop } from '$utils/loadscript';
 import { loadModelViewerScript } from '$utils/modalviewer';
@@ -20,11 +20,12 @@ window.Webflow.push(() => {
   loadModelViewerScript();
   videoLoop();
 
-  // Home
+  // Home - update v2
   if (window.location.pathname === '/') {
     homeAnimCards();
     swiperDrops();
     homeAnimEvent();
+    homeAnimHeadingBig();
   }
 
   if (window.location.href.includes('/team')) {

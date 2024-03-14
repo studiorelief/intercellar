@@ -306,3 +306,19 @@ export function homeAnimEvent() {
     x: '-20vw',
   });
 }
+
+export function homeAnimHeadingBig() {
+  gsap.set('.real-v2_span-heading', { color: '#181818' });
+  gsap.to('.real-v2_span-heading', {
+    scrollTrigger: {
+      markers: false,
+      trigger: '.real-v2_big-heading',
+      start: '-50% 50%',
+      end: '150% 50%',
+      scrub: true,
+    },
+    color: 'rgba(255, 255, 255, 1)',
+    duration: 0.25,
+    stagger: 1,
+  });
+}
