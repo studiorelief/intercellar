@@ -31,7 +31,7 @@ window.Webflow.push(() => {
   if (window.location.href.includes('/team')) {
     swiperTeam();
   }
-  if (window.location.href.includes('/concept')) {
+  if (window.location.href.includes('/concept') && window.innerWidth >= 992) {
     swiperConceptRadial();
   }
 });

@@ -105,10 +105,10 @@ export function swiperConceptRadial(): void {
       clickable: true,
       renderBullet: (index: number, className: string): string => {
         const titles = [
-          'Wine & Spiritz',
-          'NFT & Mint',
-          'Secure Storage',
-          'Eclusive Drops',
+          'Wine & Spirits',
+          'NFT Mint',
+          'Secured Storage',
+          'Exclusive Drops',
           'Marketplace',
           'Asset Redemption',
         ];
@@ -164,7 +164,7 @@ export function swiperDrops() {
     centeredSlides: true,
     autoplay: {
       delay: 0,
-      pauseOnMouseEnter: true,
+      pauseOnMouseEnter: false,
       disableOnInteraction: true,
       reverseDirection: false,
     },
