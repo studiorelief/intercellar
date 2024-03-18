@@ -28,7 +28,7 @@ window.Webflow.push(() => {
     homeAnimHeadingBig();
   }
 
-  if (window.location.href.includes('/team')) {
+  if (window.location.href.includes('/ecosystem')) {
     swiperTeam();
   }
   if (window.location.href.includes('/concept') && window.innerWidth >= 992) {
