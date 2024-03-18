@@ -28,6 +28,7 @@ export function swiperTeam() {
     modules: [Autoplay],
     direction: 'horizontal',
     grabCursor: true,
+    loop: true,
     slidesPerView: 'auto',
     spaceBetween: 64, // variable
     centeredSlides: true,
@@ -38,13 +39,14 @@ export function swiperTeam() {
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
-    speed: 0,
+    speed: 3000,
   });
 
   new Swiper('.swiper.is-press', {
     modules: [Autoplay],
     direction: 'horizontal',
     grabCursor: true,
+    loop: true,
     slidesPerView: 'auto',
     spaceBetween: 64, // variable
     centeredSlides: true,
@@ -55,7 +57,7 @@ export function swiperTeam() {
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
-    speed: 0,
+    speed: 3000,
   });
 }
 
