@@ -159,7 +159,7 @@ export function swiperDrops() {
   new Swiper('.swiper.is-drops-v2', {
     modules: [Autoplay],
     direction: 'horizontal',
-    grabCursor: false,
+    grabCursor: true,
     loop: true,
     slidesPerView: 'auto',
     spaceBetween: 64, // variable
@@ -167,7 +167,7 @@ export function swiperDrops() {
     autoplay: {
       delay: 0,
       pauseOnMouseEnter: false,
-      disableOnInteraction: true,
+      disableOnInteraction: false,
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
