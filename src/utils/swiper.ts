@@ -167,7 +167,7 @@ export function swiperDrops() {
     autoplay: {
       delay: 0,
       pauseOnMouseEnter: false,
-      disableOnInteraction: false,
+      disableOnInteraction: true,
       reverseDirection: false,
     },
     slideActiveClass: 'is-active',
